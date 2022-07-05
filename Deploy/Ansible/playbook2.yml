@@ -19,8 +19,9 @@
       loop:
         - postgresql
         - postgresql-server
+        - libpq-dev
         - python3
-        - psycopg2     
+        - python-psycopg2     
       when: ansible_os_family == 'RedHat'
    
     - name: "Find out if PostgreSQL is initialized"
