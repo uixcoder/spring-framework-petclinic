@@ -1,5 +1,5 @@
 provider "aws" {
-  region                   = "eu-north-1"
+  region = "eu-north-1"
 }
 
 
@@ -110,7 +110,7 @@ app_host ansible_host=${aws_instance.App_PetClinic_TF.public_ip}
 [db_server]
 db_host ansible_host=${aws_instance.DB_PetClinic_TF.public_ip}
 EOT  
-  filename = "~/config/hosts"
+  filename = "../config/hosts"
 }
 
 #IP of aws instances copied to a file hosts file in local system
@@ -121,7 +121,7 @@ resource "local_file" "hosts_file_ip" {
 server_ip='${aws_instance.App_PetClinic_TF.public_ip}'
 db_server_ip='${aws_instance.DB_PetClinic_TF.public_ip}'
 EOT  
-  filename = "~/config/hosts_app"
+  filename = "../config/hosts_app"
 }
 
 
