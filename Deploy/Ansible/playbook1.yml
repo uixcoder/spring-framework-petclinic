@@ -1,0 +1,98 @@
+---
+- name: Configure App Server
+  hosts: app_server
+  become: yes
+  become_method: sudo
+  remote_user: ubuntu
+
+  tasks:
+  - name: ping all servers
+    ping:
+  - name: Update APT package manager repositories cache
+    become: true
+    apt:
+      update_cache: yes
+
+  - name: Install OpenJDK Java
+    apt:
+      name: openjdk-11-jdk
+      state: present
+
+  - name: add tomcat group
+    group:
+      name: tomcat
+
+  - name: add tomcat user
+    user:
+      name: tomcat
+      group: tomcat
+      home: /usr/share/tomcat
+      createhome: no
+
+  - name: create /opt/tomcat directory
+    file:
+      path: /opt/tomcat
+      state: directory
+      mode: 0755
+
+  - name: download & unarchive
+    unarchive:
+      src: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz
+      dest: /opt/tomcat
+      remote_src: yes
+      extra_opts: [--strip-components=1]
+
+  - name: Change ownership
+    file:
+      path: /opt/tomcat
+      owner: tomcat
+      group: tomcat
+      mode: "u+rwx,g+rx,o=rx"
+      recurse: yes
+      state: directory
+
+  - name: Copy Tomcat service from local to remote
+    copy:
+       src: ./config/tomcat.service
+       dest: /etc/systemd/system/
+       mode: 0755
+
+  - name: Delete content & directory
+    shell: /bin/rm -r /opt/tomcat/webapps/*
+    args:
+      warn: false
+    
+
+     
+  - name: Start and enable Tomcat service
+    systemd:
+      name: tomcat
+      state: started
+      enabled: true
+      daemon_reload: true
+      
+  # - name: Install Maven
+  #   apt:
+  #     name: maven
+  #     state: present
+
+  # - name: Install ddclient
+  #   apt:
+  #     name: ddclient
+  #     state: present
+      
+  # - name: Copy ddclient.conf file from local to remote
+  #   copy:
+  #     force: yes
+  #     src  : /home/ubuntu/Jenkins/config/ddclient.conf
+  #     dest : "/etc/"
+  #     mode : 0600
+  #     owner: root
+  #     group: root  
+
+  # - name: Start and enable ddclient service
+  #   systemd:
+  #     name: ddclient
+  #     state: started
+  #     enabled: true
+  #     daemon_reload: true      

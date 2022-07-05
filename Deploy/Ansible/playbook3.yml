@@ -1,0 +1,47 @@
+---
+- name: Deploy Application
+  hosts: app_server
+  become: yes
+  become_method: sudo
+  remote_user: ubuntu
+
+  tasks:
+    - name: Copy Deploy script from local to remote
+      copy:
+        force: yes
+        src  : ./app/deploy
+        dest : "~"
+        mode : 0700
+        owner: ubuntu
+        group: ubuntu
+    
+    - name: Copy hosts file from local to remote
+      copy:
+        force: yes
+        src  : /home/ubuntu/Jenkins/config/hosts_geo
+        dest : "~"
+        mode : 0700
+        owner: ubuntu
+        group: ubuntu        
+
+    - name: Stop Tomcat service
+      systemd:
+        name: tomcat
+        state: stopped
+        enabled: true
+        daemon_reload: true
+
+    - name: Deploy Application
+      shell: "~/deploy"  
+      # register: output
+
+    # - debug: 
+    #     var: output.stdout_lines   
+
+    - name: Start Tomcat service
+      systemd:
+        name: tomcat
+        state: started
+        enabled: true
+        daemon_reload: true      
+   
