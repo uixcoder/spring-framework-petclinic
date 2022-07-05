@@ -1,7 +1,0 @@
-#!/bin/bash
-
-#include ip of servers
-. /root/hosts_geo
-
-
-

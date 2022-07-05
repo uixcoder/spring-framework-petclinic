@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#include ip of servers
+. ../config/hosts_app
+
+find . -type f -name "*" -exec sed -i 's/3.3.6/3.4.1/g' {} +
+
+find . -type f -name "pom.xml" -exec sed -i 's/jdbc:postgresql:\/\/localhost:5432/jdbc:postgresql:\/\/$db_server_ip:5432/g' {} 
+
+
