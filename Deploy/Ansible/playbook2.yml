@@ -19,7 +19,7 @@
     - name: "Install Python packages"
       yum: "name={{ item }}  state=present"
       with_items:
-        - python3-psycopg2
+        - python-psycopg2
    
     - name: "Find out if PostgreSQL is initialized"
       stat:
