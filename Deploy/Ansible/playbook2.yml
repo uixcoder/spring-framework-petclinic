@@ -10,16 +10,18 @@
     db_name: ansible
     
   tasks:
-    - name: "Install packages"
-      dnf: "name={{ item }} state=present"
-      with_items:
+    - name: install postgres on RHEL based distros
+      yum:
+        name: "{{ item }}"
+        state: present
+        update_cache: true
+      become: true
+      loop:
         - postgresql
         - postgresql-server
-
-    - name: "Install Python packages"
-      yum: "name={{ item }}  state=present"
-      with_items:
-        - python-psycopg2
+        #- python3
+        - python-psycopg2     
+      when: ansible_os_family == 'RedHat'
    
     - name: "Find out if PostgreSQL is initialized"
       stat:
