@@ -59,7 +59,7 @@
         - postgresql
 
     - name: Create first database
-      community.postgresql.postgresql_db:
+      postgresql_db:
         state: present
         name: "{{ db_name }}"
       become: yes
