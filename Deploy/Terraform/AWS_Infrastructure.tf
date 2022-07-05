@@ -29,7 +29,7 @@ resource "aws_instance" "App_PetClinic_TF" {
   }
 }
 resource "aws_instance" "DB_PetClinic_TF" {
-  ami                    = "ami-04e8b0e36ed3403dc"
+  ami                    = "ami-0917076ab9780844d"
   instance_type          = "t3.micro"
   key_name               = "ATC"
   vpc_security_group_ids = [aws_security_group.sg_db.id]
