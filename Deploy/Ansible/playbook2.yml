@@ -25,9 +25,9 @@
     
     - name: Utility present
       ansible.builtin.package:
-        name: python3-psycopg2
+        name: python-psycopg2
         state: present   
-        
+
     - name: "Find out if PostgreSQL is initialized"
       stat:
         path: "/var/lib/pgsql/data/pg_hba.conf"
