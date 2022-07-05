@@ -10,18 +10,15 @@
     db_name: ansible
     
   tasks:
-    - name: install postgres on RHEL based distros
-      yum:
-        name: "{{ item }}"
+    - name: Install packages
+      ansible.builtin.yum:
+        name:
+          - postgresql
+          - postgresql-server
+          - postgresql-contrib
+          - postgresql-libs
+          - python3-psycopg2
         state: present
-        update_cache: true
-      become: true
-      loop:
-        - postgresql
-        - postgresql-server
-        #- python3
-        #- python-psycopg2     
-      when: ansible_os_family == 'RedHat'
     
     - name: Utility present
       ansible.builtin.package:
