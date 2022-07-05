@@ -20,15 +20,9 @@
         - postgresql
         - postgresql-server
         #- python-dev
-        #- python3
-        #- python-psycopg2     
+        - python3-psycopg2     
       when: ansible_os_family == 'RedHat'
    
-    - name: Make sure psycopg2 is installed
-      pip3:
-        name: psycopg2
-        state: present
-
     - name: "Find out if PostgreSQL is initialized"
       stat:
         path: "/var/lib/pgsql/data/pg_hba.conf"
