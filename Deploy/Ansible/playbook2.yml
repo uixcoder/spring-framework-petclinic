@@ -19,8 +19,8 @@
       loop:
         - postgresql
         - postgresql-server
-        - python3
-        - python3-psycopg2     
+        #- python3
+        - python-psycopg2     
       when: ansible_os_family == 'RedHat'
 
     #- name: Make sure psycopg2 is installed
