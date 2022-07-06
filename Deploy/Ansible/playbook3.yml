@@ -18,7 +18,7 @@
     - name: Copy hosts file from local to remote
       copy:
         force: yes
-        src  : target/ROOT.war
+        src  : ../../target/ROOT.war
         dest : "/opt/tomcat/webapps"
         mode : 0700
         owner: ubuntu
