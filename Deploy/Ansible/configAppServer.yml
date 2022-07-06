@@ -75,24 +75,4 @@
   #   apt:
   #     name: maven
   #     state: present
-
-  # - name: Install ddclient
-  #   apt:
-  #     name: ddclient
-  #     state: present
-      
-  # - name: Copy ddclient.conf file from local to remote
-  #   copy:
-  #     force: yes
-  #     src  : /home/ubuntu/Jenkins/config/ddclient.conf
-  #     dest : "/etc/"
-  #     mode : 0600
-  #     owner: root
-  #     group: root  
-
-  # - name: Start and enable ddclient service
-  #   systemd:
-  #     name: ddclient
-  #     state: started
-  #     enabled: true
-  #     daemon_reload: true      
+  
