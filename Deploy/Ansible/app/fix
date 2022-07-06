@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ls Deploy
+
 #include ip of servers
 . Deploy/config/hosts_app
 
