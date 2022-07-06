@@ -505,7 +505,9 @@
         </profile>
         <profile>
             <id>MySQL</id>
-            
+             <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>             
             <properties>
                 <db.script>mysql</db.script>
                 <jpa.database>MYSQL</jpa.database>
@@ -525,9 +527,7 @@
         </profile>
         <profile>
             <id>PostgreSQL</id>
-             <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>       
+      
             <properties>
                 <db.script>postgresql</db.script>
                 <jpa.database>POSTGRESQL</jpa.database>
