@@ -505,9 +505,7 @@
         </profile>
         <profile>
             <id>MySQL</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>             
+            
             <properties>
                 <db.script>mysql</db.script>
                 <jpa.database>MYSQL</jpa.database>
@@ -527,7 +525,9 @@
         </profile>
         <profile>
             <id>PostgreSQL</id>
-       
+             <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>       
             <properties>
                 <db.script>postgresql</db.script>
                 <jpa.database>POSTGRESQL</jpa.database>
@@ -535,6 +535,7 @@
                 <jdbc.url>jdbc:postgresql://10.1.1.20:5432/petclinic</jdbc.url>
                 <jdbc.username>postgres</jdbc.username>
                 <jdbc.password>petclinic</jdbc.password>
+                <jdbc.dialect>org.hibernate.dialect.PostgreSQLDialect</jdbc.password>
             </properties>
             <dependencies>
                 <dependency>
