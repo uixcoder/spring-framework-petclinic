@@ -3,11 +3,11 @@
   hosts: db_server
   become: yes
   become_method: sudo
-  remote_user: gcpuser
+  remote_user: ec2-user
   vars:
-    db_user: petclinic
-    db_password: petclinic
-    db_name: petclinic
+    db_user: db_user_template
+    db_password: db_password_template
+    db_name: db_name_template
     
   tasks:
     - name: install postgres on RHEL based distros
