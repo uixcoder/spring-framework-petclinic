@@ -533,7 +533,7 @@
                 <jpa.database>POSTGRESQL</jpa.database>
                 <jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
                 <jdbc.url>jdbc:postgresql://10.1.1.20:5432/petclinic</jdbc.url>
-                <jdbc.username>postgres</jdbc.username>
+                <jdbc.username>petclinic</jdbc.username>
                 <jdbc.password>petclinic</jdbc.password>
             </properties>
             <dependencies>
