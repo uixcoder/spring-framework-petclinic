@@ -1,16 +1,16 @@
 provider "aws" {
-  region = "eu-north-1"
+  # region = "eu-north-1"
 }
 
 
 terraform {
   backend "s3" {
-    bucket                      = "pet-clinic-project"
-    key                         = "pet-clinic-tf.tfstate"
-    encrypt                     = true
-    region                      = "eu-north-1"
-    dynamodb_table              = "petclinic-tf-lock"
-    skip_credentials_validation = true
+    bucket  = "pet-clinic-project"
+    key     = "pet-clinic-tf.tfstate"
+    encrypt = true
+    # region                      = "eu-north-1"
+    dynamodb_table = "petclinic-tf-lock"
+    # skip_credentials_validation = true
   }
 
 }
