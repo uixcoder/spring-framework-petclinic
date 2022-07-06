@@ -95,7 +95,7 @@ resource "aws_security_group" "sg_db" {
 
 resource "aws_route53_record" "pet" {
   zone_id = "Z0118956EU069IAZHTCP"
-  name    = "pet.xcoder.pp.ua"
+  name    = "pet1.xcoder.pp.ua"
   type    = "A"
   ttl     = "300"
   records = [aws_instance.App_PetClinic_TF.public_ip]
