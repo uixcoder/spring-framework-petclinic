@@ -535,7 +535,6 @@
                 <jdbc.url>jdbc:postgresql://10.1.1.20:5432/petclinic</jdbc.url>
                 <jdbc.username>postgres</jdbc.username>
                 <jdbc.password>petclinic</jdbc.password>
-                <jdbc.dialect>org.hibernate.dialect.PostgreSQLDialect</jdbc.dialect>
             </properties>
             <dependencies>
                 <dependency>
