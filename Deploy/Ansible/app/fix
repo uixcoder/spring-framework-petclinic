@@ -1,11 +1,7 @@
 #!/bin/bash
 
-cat Deploy/config/hosts_app
-
 #include ip of servers
 . Deploy/config/hosts_app
-
-echo $db_server_ip
 
 find . -type f -name "*" -exec sed -i 's/3.3.6/3.4.1/g' {} +
 
