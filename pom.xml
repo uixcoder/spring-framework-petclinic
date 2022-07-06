@@ -527,9 +527,7 @@
         </profile>
         <profile>
             <id>PostgreSQL</id>
-             <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>            
+       
             <properties>
                 <db.script>postgresql</db.script>
                 <jpa.database>POSTGRESQL</jpa.database>

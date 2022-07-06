@@ -49,7 +49,7 @@ public class PetclinicInitializer extends AbstractDispatcherServletInitializer {
      * You also may use the -Dspring.profiles.active=jdbc VM options to change
      * default jpa Spring profile.
      */
-    private static final String SPRING_PROFILE = "jdbc";
+    private static final String SPRING_PROFILE = "jpa";
 
     @Override
     protected WebApplicationContext createRootApplicationContext() {
