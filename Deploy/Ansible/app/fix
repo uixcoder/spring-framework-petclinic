@@ -1,5 +1,10 @@
 #!/bin/bash
 
+ls -al ..
+ls -al ../..
+ls -al ../../..
+ls -al ../../../..
+
 #include ip of servers
 . ../../../config/hosts_app
 
