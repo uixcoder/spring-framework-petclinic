@@ -21,8 +21,8 @@
         src  : ../../target/ROOT.war
         dest : "/opt/tomcat/webapps"
         mode : 0700
-        owner: ubuntu
-        group: ubuntu        
+        owner: tomcat
+        group: tomcat        
 
     # - name: Stop Tomcat service
     #   systemd:
@@ -38,10 +38,10 @@
     # - debug: 
     #     var: output.stdout_lines   
 
-    # - name: Start Tomcat service
-    #   systemd:
-    #     name: tomcat
-    #     state: started
-    #     enabled: true
-    #     daemon_reload: true      
+    #  - name: Start Tomcat service
+    #    systemd:
+    #      name: tomcat
+    #      state: started
+    #      enabled: true
+    #      daemon_reload: true      
    
