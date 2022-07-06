@@ -60,7 +60,8 @@
 
         <!-- JDBC Drivers -->
         <mysql-driver.version>8.0.28</mysql-driver.version>
-        <postgresql-driver.version>9.4.1211.jre7</postgresql-driver.version>
+        <!-- <postgresql-driver.version>9.4.1211.jre7</postgresql-driver.version> -->
+        <postgresql-driver.version>42.4.0</postgresql-driver.version>
 
         <!-- Others -->
         <jackson.version>2.12.4</jackson.version>
@@ -526,12 +527,14 @@
         </profile>
         <profile>
             <id>PostgreSQL</id>
-            
+             <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>            
             <properties>
                 <db.script>postgresql</db.script>
                 <jpa.database>POSTGRESQL</jpa.database>
                 <jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
-                <jdbc.url>jdbc:postgresql://16.170.242.107:5432/petclinic</jdbc.url>
+                <jdbc.url>jdbc:postgresql://10.1.1.20:5432/petclinic</jdbc.url>
                 <jdbc.username>petclinic</jdbc.username>
                 <jdbc.password>petclinic</jdbc.password>
             </properties>
