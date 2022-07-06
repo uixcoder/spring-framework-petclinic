@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #include ip of servers
-. Deploy/config/hosts_app
+. Deploy_AWS_EC2_PostgerSQL/config/hosts_app
 
 find . -type f -name "*" -exec sed -i 's/3.3.6/3.4.1/g' {} +
 
