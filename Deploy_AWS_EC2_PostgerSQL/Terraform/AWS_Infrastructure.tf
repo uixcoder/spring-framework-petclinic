@@ -3,15 +3,15 @@ provider "aws" {
 }
 
 
-terraform {
-  backend "s3" {
-    bucket         = "pet-clinic-project"
-    key            = "pet-clinic-tf.tfstate"
-    encrypt        = true
-    dynamodb_table = "petclinic-tf-lock"
-  }
+# terraform {
+#   backend "s3" {
+#     bucket         = "pet-clinic-project"
+#     key            = "pet-clinic-tf.tfstate"
+#     encrypt        = true
+#     dynamodb_table = "petclinic-tf-lock"
+#   }
 
-}
+# }
 
 resource "aws_instance" "App_PetClinic_TF" {
   ami                    = "ami-0bf2ce41790745811"
@@ -26,9 +26,6 @@ resource "aws_instance" "App_PetClinic_TF" {
     Owner   = "idanylyuk"
     Project = "Petclinic"
   }
-  root_block_device = [{
-    volume_size = 4
-  }]
 }
 resource "aws_instance" "DB_PetClinic_TF" {
   ami                    = "ami-06a2a41d455060f8b"
