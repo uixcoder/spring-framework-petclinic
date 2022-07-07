@@ -26,9 +26,9 @@ resource "aws_instance" "App_PetClinic_TF" {
     Owner   = "idanylyuk"
     Project = "Petclinic"
   }
-  root_block_device = {
+  root_block_device = [{
     volume_size = 4
-  }
+  }]
 }
 resource "aws_instance" "DB_PetClinic_TF" {
   ami                    = "ami-06a2a41d455060f8b"
